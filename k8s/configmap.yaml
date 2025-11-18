@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demo-web-content
+  namespace: demo
+data:
+  index.html: |
+    <html>
+      <head>
+        <title>Homelab Demo</title>
+      </head>
+      <body style="font-family: sans-serif;">
+        <h1>Homelab Demo</h1>
+        <p>Tento web běží v mém K3s clusteru doma.</p>
+        <p>Nasazeno přes <strong>ArgoCD (GitOps)</strong>.</p>
+        <p>Commit: {{GIT_COMMIT}}</p>
+      </body>
+    </html>
+
