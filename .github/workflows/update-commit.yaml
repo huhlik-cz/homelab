@@ -1,0 +1,26 @@
+name: Update commit hash in ConfigMap
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  update-configmap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Replace placeholder with commit hash
+        run: |
+          sed -i "s/{{GIT_COMMIT}}/${GITHUB_SHA}/" k8s/configmap.yaml
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Actions"
+          git add k8s/configmap.yaml
+          git commit -m "Update commit hash to ${GITHUB_SHA}" || echo "No changes to commit"
+          git push
+
