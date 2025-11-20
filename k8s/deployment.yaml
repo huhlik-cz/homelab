@@ -18,10 +18,10 @@ spec:
           image: ghcr.io/huhlik-cz/demo-web:ba68b55
           ports:
             - containerPort: 80
-          volumeMounts:
-            - name: web-content
-              mountPath: /usr/share/nginx/html/index.html
-              subPath: index.html
+          #volumeMounts:
+          #  - name: web-content
+          #    mountPath: /usr/share/nginx/html/index.html
+          #    subPath: index.html
       volumes:
         - name: web-content
           configMap:
