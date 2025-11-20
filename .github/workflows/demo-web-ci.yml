@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "apps/demo-web/**"           # kód aplikace
+      - "k8s/**"           # kód aplikace
       - ".github/workflows/demo-web-ci.yml"
 
 jobs:
