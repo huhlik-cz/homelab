@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: demo-web
-          image: ghcr.io/huhlik-cz/demo-web:dev
+          image: ghcr.io/huhlik-cz/demo-web:ba68b55
           ports:
             - containerPort: 80
           volumeMounts:
