@@ -13,7 +13,7 @@ data:
         <h1>Homelab Demo</h1>
         <p>Tento web běží v mém K3s clusteru doma.</p>
         <p>Nasazeno přes <strong>ArgoCD (GitOps)</strong>.</p>
-        <p>Commit: {{GIT_COMMIT}}</p>
+        <p>Commit: bf08f6ccb8a94b00a5059223521fc8c7e7a55e2a</p>
       </body>
     </html>
 
