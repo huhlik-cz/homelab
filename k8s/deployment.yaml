@@ -14,8 +14,8 @@ spec:
         app: demo-web
     spec:
       containers:
-        - name: nginx
-          image: nginx:1.27-alpine
+        - name: demo-web
+          image: ghcr.io/huhlik-cz/demo-web:dev
           ports:
             - containerPort: 80
           volumeMounts:
