@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "k8s/**"           # kód aplikace
+      - "demo-web/**"           # kód aplikace
       - ".github/workflows/demo-web-ci.yml"
 
 jobs:
@@ -43,7 +43,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: ./k8s
+          context: ./demo-web
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.tag }}
