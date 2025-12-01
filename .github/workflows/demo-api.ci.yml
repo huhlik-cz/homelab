@@ -5,7 +5,7 @@ on:
     branches:
       - demo-api
     paths:
-      - "demo-api/**"
+      - "demo-api/**" #test
       - "k8s/demo-api/**"
       - ".github/workflows/demo-api-ci.yml"
 
