@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "demo-web/**"           # kód aplikace
+      - "apps/demo-web/**"           # kód aplikace
       - ".github/workflows/demo-web-ci.yml"
 
 jobs:
@@ -43,7 +43,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: ./demo-web
+          context: ./apps/demo-web
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.tag }}
@@ -52,7 +52,7 @@ jobs:
       - name: Update image tag in deployment manifest
         run: |
           TAG=${{ steps.vars.outputs.tag }}
-          FILE="k8s/deployment.yaml"
+          FILE="k8s/demo-web/deployment.yaml"
 
           echo "Updating image tag in $FILE to ${TAG}"
 
@@ -68,13 +68,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add k8s/deployment.yaml
+          git add k8s/demo-web/deployment.yaml
 
           if git diff --cached --quiet; then
             echo "No changes in deployment file, skipping commit."
             exit 0
           fi
 
-          git commit -m "Deploy demo-app image ${TAG}"
+          git commit -m "Deploy demo-web image ${TAG}"
           git push
 

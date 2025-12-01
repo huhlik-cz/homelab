@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: demo-web-content
-  namespace: demo
+  namespace: demo-web
 data:
   index.html: |
     <html>
