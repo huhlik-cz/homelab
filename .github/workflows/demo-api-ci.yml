@@ -38,6 +38,9 @@ jobs:
       - name: Run tests
         working-directory: demo-api
         run: |
+          echo "CWD: $(pwd)"
+          python -c "import sys, os; print('sys.path:', sys.path)"
+          export PYTHONPATH=$(pwd)
           pytest -q
 
       - name: Set up Docker Buildx
