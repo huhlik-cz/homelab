@@ -77,7 +77,7 @@ jobs:
           grep "ghcr.io/huhlik-cz/demo-api" "$FILE"
 
       - name: Commit and push changes
-        ## if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/demo-api'
         run: |
           set -e
           TAG=${{ steps.vars.outputs.tag }}
