@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: demo-api
-          image: ghcr.io/huhlik-cz/demo-api:dev   # CI přepíše na SHA
+          image: ghcr.io/huhlik-cz/demo-api:latest   # CI přepíše na SHA
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
