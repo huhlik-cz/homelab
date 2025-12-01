@@ -5,7 +5,7 @@ on:
     branches:
       - demo-api
     paths:
-      - "apps/demo-api/**"
+      - "demo-api/**"
       - "k8s/demo-api/**"
       - ".github/workflows/demo-api-ci.yml"
 
@@ -31,12 +31,12 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        working-directory: apps/demo-api
+        working-directory: demo-api
         run: |
           pip install -r requirements.txt
 
       - name: Run tests
-        working-directory: apps/demo-api
+        working-directory: demo-api
         run: |
           pytest -q
 
@@ -59,7 +59,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: ./apps/demo-api
+          context: ./demo-api
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.tag }}
